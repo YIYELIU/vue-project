@@ -80,23 +80,47 @@
         </a>
       </li>
     </ul>
+    <mt-button type="default" @click="btnone">default</mt-button>
+    <mt-button type="primary" @click="btntwo">primary</mt-button>
+    <mt-button type="danger">danger</mt-button>
+    <div class="mui-btn mui-btn-primary">
+        蓝色
+    </div>
   </div>
 </template>
 
 <script>
+import { Toast, Indicator } from "mint-ui";
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: "Welcome to Your Vue.js App"
+    };
+  },
+  methods: {
+    btnone() {
+      // Toast('提示信息')
+      Toast({
+        message: "提示",
+        position: "bottom",
+        duration: 5000
+      })
+    },
+    btntwo() {
+      Indicator.open({
+        text: '加载中...',
+        spinnerType: 'fading-circle'
+     });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -111,3 +135,4 @@ a {
   color: #42b983;
 }
 </style>
+
